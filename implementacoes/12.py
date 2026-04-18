@@ -1,7 +1,7 @@
 """
-implementacao_04_bipartido.py
+12.py
 ------------------------------
-IMPLEMENTAÇÃO 04 — Verificação de Grafo Bipartido
+IMPLEMENTAÇÃO 12 — Determinar se um grafo é bipartido
 
 Um grafo é BIPARTIDO se seus vértices podem ser divididos em dois conjuntos
 disjuntos (U e V) de forma que toda aresta conecte um vértice de U a um
