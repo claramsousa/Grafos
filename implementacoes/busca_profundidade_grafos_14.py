@@ -79,4 +79,6 @@ def exibir_resultado_dfs(nome_grafo, v_inicial, resultado):
         txt_v = str(v)
         txt_pred = str(pred) if pred is not None else "--- Raiz ---"
         print(f"      | {txt_v:^16} | {txt_pred:^17} |")
-    print(f"      {'-' * 42}\n")
+    
+    # Linha final que encerra a tabela (impressa apenas uma vez no final)
+    print(f"      {'-' * 42}\n" + "      (Fim da Busca)")
