@@ -6,6 +6,43 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from grafo import ler_grafo
 
 # ==============================================================================
+# FUNÇÃO DE CONSTRUÇÃO
+# ==============================================================================
+
+"""
+Constrói a matriz de adjacência a partir do objeto Grafo.
+
+Saída:
+    dict: {
+        "matriz": lista de listas (N x N),
+        "vertices": lista de vértices ordenados
+    }
+"""
+def construir_matriz_adjacencia(grafo):
+    # Lógica de ordenação
+    chave_ord = lambda v: (0, int(v)) if str(v).isdigit() else (1, str(v))
+    vertices_ordenados = sorted(grafo.obter_vertices(), key=chave_ord)
+    
+    n = len(vertices_ordenados)
+    # Cria um mapa para saber o índice de cada vértice na matriz
+    indice = {v: i for i, v in enumerate(vertices_ordenados)}
+    
+    # Inicializa a matriz com zeros
+    matriz = [[0 for _ in range(n)] for _ in range(n)]
+    
+    # Preenche a matriz com base nas arestas
+    for v_origem in vertices_ordenados:
+        vizinhos = grafo.adjacencia.get(v_origem, [])
+        for v_destino in vizinhos:
+            i, j = indice[v_origem], indice[v_destino]
+            matriz[i][j] = 1
+            
+    return {
+        "matriz": matriz,
+        "vertices": vertices_ordenados
+    }
+
+# ==============================================================================
 # FUNÇÃO DE EXIBIÇÃO DA MATRIZ (Tarefa 02)
 # ==============================================================================
 def exibir_matriz_adjacencia(nome_grafo, grafo):
