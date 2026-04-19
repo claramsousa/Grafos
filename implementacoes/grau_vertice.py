@@ -8,8 +8,15 @@ from implementacoes.conversao_matriz_lista import matriz_para_lista
 
 def verificacao_lista_ou_matriz(grafo):
     """
-    Garante que a entrada seja uma lista de adjacência estruturada.
-    Converte matrizes automaticamente se necessário.
+    Verifica se a entrada é lista ou matriz
+    Se for matriz, ela é convertida para uma lista de adjacência para então realizar o cálculo
+    Pois é mais eficiente utilizando a lista de adjacência
+    
+    Entradas:
+        grafo (dict): dicionário que armazena a estrutura de matriz ou de lista
+    
+    Saída:
+        grafo (dict): lista de adjacência estruturada com a lista e os vértices ordenados
     """
     if isinstance(grafo, dict) and 'matriz' in grafo:
         print("Convertendo a Matriz de Adjacência para Lista para cálculo de graus...")
@@ -22,7 +29,12 @@ def verificacao_lista_ou_matriz(grafo):
 
 def calcular_grau_vertices(grafo):
     """
-    Calcula o grau de cada vértice a partir da lista de adjacência.
+    Calcula o grau de cada vértice a partir do grafo
+    
+    Entrada:
+        grafo (dict): grafo que pode estar representado como lista ou matriz de adjacência
+    Saída:
+        representacao_grau (dict): Dicionário contendo a lista de graus e os vértices ordenados
     """
     grafo = verificacao_lista_ou_matriz(grafo)
     graus = {}
@@ -42,7 +54,11 @@ def calcular_grau_vertices(grafo):
 
 def exibir_grau_vertices(nome_grafo, estrutura_graus):
     """
-    Exibe uma tabela formatada com os graus dos vértices.
+    Exibe a quantidade de graus que cada vértice possui
+    
+    Entradas:
+        nome_grafo (str): nome do arquivo .txt que originou o grafo
+        estrutura_graus (dict): dicionário que armazena o valor dos graus e os vertices ordenados
     """
     graus = estrutura_graus['graus']
     vertices = estrutura_graus['vertices']
