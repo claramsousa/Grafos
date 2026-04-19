@@ -92,6 +92,9 @@ Para testar as funcionalidades do projeto, execute o comando a partir da raiz do
 ```bash
 python src/main.py
 ```
+
+> **Requisitos:** Python 3.8+. Nenhuma biblioteca externa é necessária.
+
 Ao executar a main.py, utilize as seguintes opções para testar as funcionalidades:
 
 - Opção 0: Encerra a execução do programa.
@@ -135,8 +138,6 @@ Ao executar a main.py, utilize as seguintes opções para testar as funcionalida
 - Opção 19: Conversão entre Matriz de Incidência e Estrela Direta/Inversa.
 
 - Opção 20: Busca em Profundidade (DFS) em Dígrafos com classificação de arestas.
-
-> **Requisitos:** Python 3.8+. Nenhuma biblioteca externa é necessária.
 
 ---
 
