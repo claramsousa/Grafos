@@ -82,6 +82,9 @@ Contém as classes e funções utilizadas por todas as implementações:
 
 Menu que organiza as implementações e permite testar os métodos desenvolvidos no trabalho.
 
+- Gerencia automaticamente os caminhos do sistema (sys.path) para importar módulos de diferentes pastas.
+- Configuração que roda automaticamente os arquivos da pasta `dados-trabalho_1`.
+
 ## ▶️ Como Executar As Implementações
 
 Para testar as funcionalidades do projeto, execute o comando a partir da raiz do projeto:
