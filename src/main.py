@@ -316,7 +316,7 @@ def menu_principal():
             print(f"\n{'=' * 70}\n")
 
         elif opcao == '14':
-            print("\n--- #14: Conversão de matriz de adjacência para lista de Adjacências e vice-versa.(GRAFO1, GRAFO2) ---")
+            print("\n--- #14: Busca em Profundidade, a partir de um vértice em específico(GRAFO1, GRAFO3, Vértice inicial). ---")
             path_g1 = os.path.join(base, 'GRAFO_1.txt')
             if os.path.exists(path_g1):
                 g1 = ler_grafo(path_g1)
@@ -366,7 +366,7 @@ def menu_principal():
             print(f"\n{'=' * 65}\n")
 
         elif opcao == '17':
-            print("\n--- #17: Representação do Digrafo a partir da Matriz de Incidência(DIGRAFO1, DIGRAFO2 ---")
+            print("\n--- #17: Representação do Digrafo a partir da Matriz de Incidência(DIGRAFO1, DIGRAFO2) ---")
             for d_nome in ['DIGRAFO1.txt', 'DIGRAFO2.txt']:
                 path = os.path.join(base, d_nome)
                 if os.path.exists(path):
