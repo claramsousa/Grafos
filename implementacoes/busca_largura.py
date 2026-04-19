@@ -9,7 +9,16 @@ from implementacoes.conversao_matriz_lista import matriz_para_lista
 
 def verificacao_lista_ou_matriz(grafo, vertice_inicial):
     """
-    Garante que o grafo esteja no formato de lista de adjacência para a busca.
+    Verifica se a entrada é lista ou matriz
+    Se for matriz, ela é convertida para uma lista de adjacência para então realizar a busca
+    Pois a busca em largura utilizando lista de adjacência é mais eficiente
+    
+    Entradas:
+        grafo (dict): dicionário que armazena as estruturas de matriz ou de lista
+        vertice_inicial (str): vértice de onde a busca em largura partirá
+    
+    Saída:
+        grafo (dict): lista de adjacência estruturada com a lista e os vértices ordenados
     """
     if isinstance(grafo, dict) and 'matriz' in grafo:
         print("Convertendo a Matriz de Adjacência para Lista de Adjacência...")
@@ -25,8 +34,20 @@ def verificacao_lista_ou_matriz(grafo, vertice_inicial):
 
 def mapear_busca_largura(grafo, vertice_inicial):
     """
-    Realiza a busca em largura (BFS) e mapeia ordens e predecessores.
-    """
+    Realiza a busca em largura no grafo não direcionado
+    
+    Atributos:
+        lista_adj (dict): armazena o dicionário com a lista de adjacência, as chaves são os vértices e os valores seus vizinhos
+        conhecidos
+    
+    Entradas:
+        grafo: grafo não direcionado que pode estar representado como lista ou matriz
+        vertice_inicial (str): vértice onde a busca inicia
+    
+    Saída:
+        ordem_visitas (list): lista de todos os vértices visitados na BSF
+        predecessores (list): lista de predecessores na busca em largura
+    """   
     grafo = verificacao_lista_ou_matriz(grafo, vertice_inicial)
     if not grafo:
         return None, None
@@ -55,8 +76,14 @@ def mapear_busca_largura(grafo, vertice_inicial):
 
 def exibir_resultado_bfs(nome_arquivo, vertice_inicial, ordem_visitas, predecessores):
     """
-    Exibe os resultados da BFS de forma estruturada.
-    """
+    Exibe o vértice inicial, a ordem de visitas e os predecessores da busca em largura
+    
+    Entradas:
+        nome_arquivo (str): nome do arquivo .txt que originou o grafo
+        vertice_inicial (str): vértice onde a busca inicia
+        ordem_visitas (list): lista de todos os vértices visitados na BSF em ordem de visita
+        predecessores (list): lista de predecessores na busca em largura na ordem da ordem de visitas
+    """  
     if ordem_visitas is None:
         return
 
