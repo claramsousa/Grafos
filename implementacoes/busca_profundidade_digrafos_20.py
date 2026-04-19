@@ -85,14 +85,20 @@ def exibir_dfs_digrafo(nome_grafo, v_inicial, resultado):
     if 'erro' in resultado:
         print(f"  [ERRO] {resultado['erro']}\n"); return
 
-    print(f"\n  [1] Tabela de Tempos e Predecessores:")
+    ordem = resultado['ordem']
+    
+    print(f"\n  [1] Ordem dos Vértices Visitados:")
+    print(f"      {' -> '.join(str(v) for v in ordem)}")
+    print(f"      (Total: {len(ordem)} vértices alcançados)\n")
+
+    print(f"  [2] Tabela de Tempos e Predecessores:")
     print(f"      {'-' * 62}")
     print(f"      | {'Vértice':^9} | {'d[v] (Ent)':^12} | {'f[v] (Sai)':^12} | {'Predecessor':^15} |")
     print(f"      {'-' * 62}")
-    for v in resultado['ordem']:
+    for v in ordem:
         print(f"      | {str(v):^9} | {str(resultado['d'][v]):^12} | {str(resultado['f'][v]):^12} | {str(resultado['predecessor'][v] or '---'):^15} |")
 
-    print(f"\n  [2] Classificação das Arestas:")
+    print(f"\n  [3] Classificação das Arestas:")
     print(f"      {'-' * 39}")
     print(f"      | {'Aresta (u -> w)':^17} | {'Tipo':^15} |")
     print(f"      {'-' * 39}")
