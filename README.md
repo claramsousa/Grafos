@@ -92,6 +92,49 @@ Para testar as funcionalidades do projeto, execute o comando a partir da raiz do
 ```bash
 python src/main.py
 ```
+Ao executar a main.py, utilize as seguintes opções para testar as funcionalidades:
+
+- Opção 0: Encerra a execução do programa.
+
+- Opção 1: Representação do Grafo a partir da Lista de Adjacências.
+
+- Opção 2: Representação do Grafo a partir da Matriz de Adjacências.
+
+- Opção 3: Representação do Grafo a partir da Matriz de Incidência.
+
+- Opção 4: Conversão de Matriz de Adjacência para Lista de Adjacências e vice-versa.
+
+- Opção 5: Cálculo do grau de cada vértice.
+
+- Opção 6: Determinação de adjacência entre dois vértices.
+
+- Opção 7: Determinação do número total de vértices.
+
+- Opção 8: Determinação do número total de arestas.
+
+- Opção 9: Inclusão de um novo vértice.
+
+- Opção 10: Exclusão de um vértice existente.
+
+- Opção 11: Verificação de conectividade (Grafo Conexo ou Desconexo).
+
+- Opção 12: Verificação de Grafo Bipartido.
+
+- Opção 13: Busca em Largura (BFS) a partir de um vértice específico.
+
+- Opção 14: Busca em Profundidade (DFS) em Grafos.
+
+- Opção 15: Análise de Biconectividade (Pontos de Articulação e Blocos).
+
+- Opção 16: Representação de Dígrafo via Matriz de Adjacência.
+
+- Opção 17: Representação de Dígrafo via Matriz de Incidência.
+
+- Opção 18: Determinação do Grafo Subjacente e Conectividade Fraca.
+
+- Opção 19: Conversão entre Matriz de Incidência e Estrela Direta/Inversa.
+
+- Opção 20: Busca em Profundidade (DFS) em Dígrafos com classificação de arestas.
 
 > **Requisitos:** Python 3.8+. Nenhuma biblioteca externa é necessária.
 
