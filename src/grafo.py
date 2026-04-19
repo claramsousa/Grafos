@@ -40,6 +40,22 @@ class Grafo:
         if v not in self.adjacencia:
             self.adjacencia[v] = []
 
+    def remover_vertice(self, v):
+        """
+        Remove o vértice v e todas as arestas associadas a ele (Tarefa 10).
+        """
+        v = str(v) 
+        if v in self.adjacencia:
+            # 1. Remove a referência a 'v' da lista de vizinhos de todos os seus vizinhos
+            for vizinho in self.adjacencia[v]:
+                if v in self.adjacencia[vizinho]:
+                    self.adjacencia[vizinho].remove(v)
+            
+            # 2. Remove a entrada do vértice no dicionário de adjacência
+            del self.adjacencia[v]
+            return True
+        return False
+
     def adicionar_aresta(self, u, v):
         """
         Adiciona uma aresta bidirecional entre u e v (grafo não-dirigido).
