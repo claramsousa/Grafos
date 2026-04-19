@@ -25,26 +25,26 @@ projeto-grafos/
 │   └── main.py 
 │
 ├── implementacoes/            # Uma implementação por arquivo
-│   └── lista_adjacencia_grafos.py   # Implementação 1
-│   └── implementacao_02.py  # Implementação 2
-│   └── matriz_incidencia_grafos_03.py  # Implementação 3
-│   └── conversao_matriz_lista.py # Implementação 4
-│   └── grau_vertice.py # Implementação 5
-│   └── implementacao_06.py # Implementação 6
-│   └── implementacao_07.py # Implementação 7
-│   └── implementacao_08.py # Implementação 8
-│   └── implementacao_09.py # Implementação 9
-│   └── implementacao_10.py # Implementação 10
-│   └── convexo_11.py # Implementação 11
-│   └── implementacao_12.py # Implementação 12
-│   └── busca_largura.py # Implementação 13
-│   └── busca_profundidade_grafos_14.py # Implementação 14
-│   └── implementacao_15.py # Implementação 15
-│   └── implementacao_16.py # Implementação 16
-│   └── matriz_incidencia_digrafos_17.py # Implementação 17
-│   └── implementacao_18.py # Implementação 18
-│   └── implementacao_19.py # Implementação 19
-│   └── busca_profundidade_digrafos_20.py # Implementação 20 
+│   └── lista_adjacencia_grafos.py               # Implementação 1
+│   └── implementacao_02.p                       # Implementação 2
+│   └── matriz_incidencia_grafos_03.py           # Implementação 3
+│   └── conversao_matriz_lista.py                # Implementação 4
+│   └── grau_vertice.py                          # Implementação 5
+│   └── implementacao_06.py                      # Implementação 6
+│   └── implementacao_07.py                      # Implementação 7
+│   └── implementacao_08.py                      # Implementação 8
+│   └── implementacao_09.py                      # Implementação 9
+│   └── implementacao_10.py                      # Implementação 10
+│   └── convexo_11.py                            # Implementação 11
+│   └── implementacao_12.py                      # Implementação 12
+│   └── busca_largura.py                         # Implementação 13
+│   └── busca_profundidade_grafos_14.py          # Implementação 14
+│   └── implementacao_15.py                      # Implementação 15
+│   └── implementacao_16.py                      # Implementação 16
+│   └── matriz_incidencia_digrafos_17.py         # Implementação 17
+│   └── implementacao_18.py                      # Implementação 18
+│   └── implementacao_19.py                      # Implementação 19
+│   └── busca_profundidade_digrafos_20.py        # Implementação 20 
 │
 └── README.md
 ```
