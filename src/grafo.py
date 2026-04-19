@@ -42,16 +42,16 @@ class Grafo:
 
     def remover_vertice(self, v):
         """
-        Remove o vértice v e todas as arestas associadas a ele (Tarefa 10).
+        Tarefa (10): Remove o vértice v e limpa todas as referências a ele.
         """
         v = str(v) 
         if v in self.adjacencia:
-            # 1. Remove a referência a 'v' da lista de vizinhos de todos os seus vizinhos
+            # Remove a referência a 'v' da lista de vizinhos de todos os seus vizinhos
             for vizinho in self.adjacencia[v]:
                 if v in self.adjacencia[vizinho]:
                     self.adjacencia[vizinho].remove(v)
             
-            # 2. Remove a entrada do vértice no dicionário de adjacência
+            # Remove a entrada do vértice no dicionário de adjacência
             del self.adjacencia[v]
             return True
         return False

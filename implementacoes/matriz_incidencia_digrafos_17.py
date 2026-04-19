@@ -1,63 +1,32 @@
 """
 matriz_incidencia_digrafos_17.py
-------------------------------
-Módulo de representação de Dígrafos por Matriz de Incidência.
-
-Este arquivo pode ser:
-1. Executado diretamente para ver os testes com DIGRAFO1 e DIGRAFO2.
-2. Importado em outros scripts usando:
-   from matriz_incidencia_digrafos_17 import construir_matriz_incidencia
+Módulo para representação de Dígrafos por Matriz de Incidência.
 """
 
-import sys
-import os
-
-# Adiciona a pasta 'src' ao caminho de busca para que o módulo encontre 'grafo.py'
-# independente de onde seja chamado dentro da estrutura do projeto.
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-
-try:
-    from grafo import ler_digrafo
-    # Importa a função de ordenação auxiliar do arquivo de grafos para evitar duplicação
-    from matriz_incidencia_grafos_03 import _chave_ordenacao
-except ImportError:
-    print("Erro: Nao foi possivel encontrar os modulos necessarios. Certifique-se de manter a estrutura de pastas.")
-
-# ==============================================================================
-# FUNÇÃO PRINCIPAL (Exportável)
-# ==============================================================================
+# Importa a função de ordenação auxiliar da Tarefa 03 para manter o padrão
+from implementacoes.matriz_incidencia_grafos_03 import _chave_ordenacao
 
 def construir_matriz_incidencia(digrafo):
     """
-    Constroi a Matriz de Incidencia de um digrafo.
-
-    Entrada:
-        digrafo (Digrafo): objeto Digrafo (da classe em src/grafo.py)
-
-    Saída:
-        dict: {
-            'matriz': list of list,
-            'vertices': list,
-            'arcos': list
-        }
+    Constrói a Matriz de Incidência de um dígrafo.
+    Origem = +1, Destino = -1.
     """
-    # Ordena para garantir que a matriz seja deterministica
+    # Ordenação determinística
     vertices = sorted(digrafo.obter_vertices(), key=_chave_ordenacao)
     arcos    = sorted(digrafo.obter_arcos(),
                       key=lambda a: (_chave_ordenacao(a[0]),
                                      _chave_ordenacao(a[1])))
 
-    # Cria a matriz zerada (Linhas = Vertices, Colunas = Arcos)
+    # Cria a matriz zerada (Linhas = Vértices, Colunas = Arcos)
     matriz = [[0] * len(arcos) for _ in range(len(vertices))]
 
-    # Preenche a matriz: cada coluna j tem +1 na origem e -1 no destino
+    # Preenche a matriz: +1 na origem (u) e -1 no destino (v)
     for j, (u, v) in enumerate(arcos):
-        # Encontra o indice da linha para cada vertice do arco
         linha_u = vertices.index(u)
         linha_v = vertices.index(v)
         
-        matriz[linha_u][j] = 1   # u eh origem
-        matriz[linha_v][j] = -1  # v eh destino
+        matriz[linha_u][j] = 1   # Origem
+        matriz[linha_v][j] = -1  # Destino
 
     return {
         'matriz':   matriz,
@@ -65,42 +34,30 @@ def construir_matriz_incidencia(digrafo):
         'arcos':    arcos
     }
 
-
-
-# ==============================================================================
-# FUNÇÃO DE EXIBIÇÃO
-# ==============================================================================
-
-def exibir_resultado(nome_digrafo, mat_inc):
-    """Exibe formatado a Matriz de Incidencia com nomes dos arcos no cabecalho."""
+def exibir_incidencia_digrafo(nome_digrafo, mat_inc):
+    """Exibe formatada a Matriz de Incidência do Dígrafo."""
     matriz   = mat_inc['matriz']
     vertices = mat_inc['vertices']
     arcos    = mat_inc['arcos']
     
-    # Prepara os nomes dos arcos para o cabecalho: (u->v)
+    # Nomes dos arcos para o cabeçalho
     nomes_arcos = [f"({u}->{v})" for u, v in arcos]
-    
-    # Calcula a largura necessaria para cada coluna (baseado no maior nome de arco)
-    # No minimo 5 espacos para nao ficar muito apertado
     largura_col = max(max(len(n) for n in nomes_arcos), 5) + 2
-
-    comp_linha = 10 + largura_col * len(arcos)
-    comp_linha = comp_linha if comp_linha > 70 else 70
+    comp_linha = max(10 + largura_col * len(arcos), 70)
 
     print(f"\n{'=' * comp_linha}")
     print(f"  {nome_digrafo}")
     print(f"{'=' * comp_linha}")
-    print(f"  Dimensao da matriz: {len(vertices)} vertices x {len(arcos)} arcos\n")
+    print(f"  Dimensão: {len(vertices)} vértices x {len(arcos)} arcos\n")
 
-    # ── Cabecalho: nomes dos arcos ─────────────────────────────────────────
+    # Cabeçalho
     cabecalho = " " * 9
     for nome in nomes_arcos:
         cabecalho += nome.center(largura_col)
-    
     print(cabecalho)
     print(" " * 8 + "-" * (largura_col * len(arcos) + 2))
 
-    # ── Linhas: cada vertice com seus valores na matriz ───────────────────────
+    # Linhas
     for i, v in enumerate(vertices):
         prefixo = f"  v={str(v):>3} |"
         celulas = ""
@@ -110,26 +67,3 @@ def exibir_resultado(nome_digrafo, mat_inc):
                 valor = "+1"
             celulas += valor.center(largura_col)
         print(f"{prefixo}{celulas}")
-
-
-
-# ==============================================================================
-# EXECUÇÃO DE TESTE (Nao roda quando importado)
-# ==============================================================================
-
-if __name__ == '__main__':
-    base = os.path.join(os.path.dirname(__file__), '..', 'dados-trabalho_1')
-
-    # Teste com DIGRAFO1
-    path_d1 = os.path.join(base, 'DIGRAFO1.txt')
-    if os.path.exists(path_d1):
-        d1 = ler_digrafo(path_d1)
-        exibir_resultado('DIGRAFO1', construir_matriz_incidencia(d1))
-
-    # Teste com DIGRAFO2
-    path_d2 = os.path.join(base, 'DIGRAFO2.txt')
-    if os.path.exists(path_d2):
-        d2 = ler_digrafo(path_d2)
-        exibir_resultado('DIGRAFO2', construir_matriz_incidencia(d2))
-
-    print(f"\n{'=' * 70}\n")
